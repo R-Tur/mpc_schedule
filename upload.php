@@ -18,7 +18,7 @@ if(!file_exists($uploaddir)){
   die("can't create a $uploaddir directory. Check rights.");
 }
 if(!$_FILES['userfile']['name']){
-die("There is no file for upload!");
+die();
 }
 $uploadfile = $uploaddir . basename($_FILES['userfile']['name']);
 if (move_uploaded_file($_FILES['userfile']['tmp_name'], $uploadfile)) {

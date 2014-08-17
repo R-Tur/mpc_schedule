@@ -9,6 +9,7 @@ if($_POST["delete"]){
 <body>
 <form method="POST" target="">
 <select size="3" name="track">
+<option value="title" disabled>Your uploaded tracks.</option>
 <?
 $dir = "programms/";
 $files = scandir($dir);
@@ -30,7 +31,7 @@ echo "<option value=\"".$files[$i]."\">".$files[$i]."</option>";
 
 <?php
 if(!$_POST["submit"] || !$_POST["track"] || !$_GET["d"] || !$_GET["h"] || !$_GET["m"]){
-die("bad request (check the parameters)");
+die();
 }
 $root = "schedule/";
 $dirname = "$root{$_GET["d"]}_{$_GET["h"]}_{$_GET["m"]}";
