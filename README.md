@@ -11,4 +11,6 @@ Do not forget to change a password in the <b>config.php</b> (see <b>$CONFIG["use
 
 Default credentials: user: <b>admin</b>, no password
 
+<b>Make sure that you have a writing-rights for the project directory!</b>
+
 <img src="http://jsound.org/img/schedule.png">
