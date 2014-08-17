@@ -20,12 +20,17 @@ function get_pos_num {
   echo $(($(get_current_num)+1));
 }
 
+prev_count=$(get_last_num)
 
 mpc update
 mpc random 0
 mpc add "$1"
 
 track_name=$(get_last_name)
+
+if [ "$prev_count" -eq "$(get_last_num)" ];then
+exit
+fi
 
 pos=$(get_pos_num);
 if [ $pos -gt $(get_last_num) ]; then
