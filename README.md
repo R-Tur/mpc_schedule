@@ -9,5 +9,6 @@ After creation of the schedule, make symlink for a "/programms" dir in your mpd 
 
 Do not forget to change a password in the <b>config.php</b> (see <b>$CONFIG["user"]</b> and <b>$CONFIG["pass"])</b>.
 
+Default credentials: user: admin, no password
 
 <img src="http://jsound.org/img/schedule.png">
