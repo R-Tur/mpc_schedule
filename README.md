@@ -1,4 +1,4 @@
-mpc_schedule
+MPC cron-based schedule manager
 ============
 
 Radio schedule manager (MPC frontend, cron-based)
