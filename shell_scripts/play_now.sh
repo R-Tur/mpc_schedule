@@ -5,11 +5,11 @@ function get_current_name {
 }
 
 function get_current_num {
-  echo $(mpc playlist | grep -n "$(get_current_name)"|cut -f1 -d:);
+  echo $(mpc| sed -n 2p| awk -F'#' '{print $2}'|awk -F'/' '{print $1}');
 }
 
 function get_last_num {
-  echo $(mpc playlist | wc -l);
+  echo $(mpc| sed -n 2p| awk -F'#' '{print $2}'| awk -F'/' '{print $2}'| awk -F' ' '{print $1}');
 }
 
 function get_last_name {
