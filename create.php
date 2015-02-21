@@ -1,7 +1,7 @@
 <?
 require("auth.php");
 $uploaddir = "programms/";
-if($_POST["delete"]){ 
+if(isset($_POST["delete"])){ 
   if($_POST["track"]) unlink($uploaddir.$_POST["track"]); 
 }
 ?>
@@ -30,7 +30,7 @@ echo "<option value=\"".$files[$i]."\">".$files[$i]."</option>";
 </html>
 
 <?php
-if(!$_POST["submit"] || !$_POST["track"] || !$_GET["d"] || !$_GET["h"] || !$_GET["m"]){
+if(!isset($_POST["submit"]) || !isset($_POST["track"]) || !isset($_GET["d"]) || !isset($_GET["h"]) || !isset($_GET["m"])){
 die();
 }
 $root = "schedule/";
