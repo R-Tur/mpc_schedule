@@ -2,7 +2,7 @@
 require("auth.php");
 $uploaddir = "programms/";
 if(isset($_POST["delete"])){ 
-  if($_POST["track"]) unlink($uploaddir.$_POST["track"]); 
+  if(isset($_POST["track"])) unlink($uploaddir.$_POST["track"]); 
 }
 ?>
 <html>
@@ -12,7 +12,11 @@ if(isset($_POST["delete"])){
 <option value="title" disabled>Your uploaded tracks.</option>
 <?
 $dir = "programms/";
-$files = scandir($dir);
+if(file_exists($dir)){
+	$files = scandir($dir);
+}
+
+if(isset($files))
 for($i=2;$i<count($files);$i++){
 echo "<option value=\"".$files[$i]."\">".$files[$i]."</option>";
 }

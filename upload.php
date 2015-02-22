@@ -12,17 +12,17 @@
 <?php
 $uploaddir = 'programms/';
 if (!file_exists($uploaddir)) {
-    mkdir($uploaddir, 0777, true);
+    @mkdir($uploaddir, 0777, true);
 }
 if(!file_exists($uploaddir)){
   die("can't create a $uploaddir directory. Check rights.");
 }
-if(!$_FILES['userfile']['name']){
+if(!isset($_FILES['userfile']['name']) || !$_FILES['userfile']['name']){
 die();
 }
 $uploadfile = $uploaddir . basename($_FILES['userfile']['name']);
 if (move_uploaded_file($_FILES['userfile']['tmp_name'], $uploadfile)) {
-	if($_POST["ref"]){
+	if(isset($_POST["ref"])){
 	  header("location: ".$_POST["ref"]);
 	  die();
 	}

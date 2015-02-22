@@ -1,6 +1,11 @@
 <?
 require("auth.php");
-$schedule_list = scandir("schedule/");
+$schedule_list = false;
+if(file_exists("schedule/")){
+	$schedule_list = scandir("schedule/");
+}
+
+
 ?>
 <html>
 <body>
@@ -30,7 +35,7 @@ else{
 $t = $j."_".date('H_i', mktime(0,$i*30));
 $h = date('H', mktime(0,$i*30));
 $m = date('i', mktime(0,$i*30));
-if(in_array($t, $schedule_list)){
+if($schedule_list&&in_array($t, $schedule_list)){
 $info = file_get_contents("schedule/".$t."/info");
 ?>
 <td><a href="delete.php?d=<?=$j?>&h=<?=$h?>&m=<?=$m?>"><?=$info?></a></td>
