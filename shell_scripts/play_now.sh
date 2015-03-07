@@ -23,6 +23,7 @@ function get_pos_num {
 prev_count=$(get_last_num)
 
 mpc update
+sleep 3
 mpc random 0
 mpc add "$1"
 
